@@ -14,7 +14,7 @@ import { DeliveryModule } from 'src/delivery/delivery.module';
     UserModule,
     AuthModule,
     MongooseModule.forRoot(
-      'mongodb+srv://pew:marioisgay@postify.u68njdx.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp',
+      'mongodb+srv://wepost:wepost@wepost.ior0uzd.mongodb.net/?retryWrites=true&w=majority&appName=WePost',
     ),
     DeliveryModule,
   ],

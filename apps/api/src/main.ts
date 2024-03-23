@@ -10,7 +10,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(3001);
   await mongoose.connect(
-    'mongodb+srv://pew:marioisgay@postify.u68njdx.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp',
+    'mongodb+srv://wepost:wepost@wepost.ior0uzd.mongodb.net/?retryWrites=true&w=majority&appName=WePost',
   );
 }
 bootstrap();
