@@ -1,0 +1,29 @@
+.track-shipment {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--postify-gray-03);
+  padding: 3rem;
+  color: var(--postify-black);
+  border-radius: 20% 0 20% 0;
+}
+.track-title {
+  text-align: left;
+  color: var(--postify-black);
+  margin-bottom: 2rem;
+}
+.tracking-form {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.pictures {
+  width: 70%;
+  border-radius: 1rem;
+}
+
+.MuiButtonBase-root.sign-up-button {
+  color: var(--postify-white);
+}
