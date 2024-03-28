@@ -97,12 +97,10 @@ const Navbar = () => {
                     </MenuItem>
                   );
                 } else if (user.user && route.title === "Logout") {
-                  console.log("here");
                   return (
                     <MenuItem
                       key={route.title}
                       onClick={() => {
-                        console.log("here");
                         dispatch(logout());
                         localStorage.removeItem("user");
                       }}
@@ -161,7 +159,6 @@ const Navbar = () => {
                   </Button>
                 );
               } else if (user.user && route.title === "Logout") {
-                console.log("here");
                 return (
                   <Button
                     key={route.title}

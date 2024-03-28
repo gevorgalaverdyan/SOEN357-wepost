@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login, register, reset } from "../../features/Auth/authSlice";
 import { ICreateUserData, ILoginUserData } from "../../types/user.type";
+import React from "react";
 
 function useAuth() {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const navigate = useNavigate();
   const dispatch: any = useDispatch();
   const { user, isSuccess, message, isError, isOrdering } = useSelector(
@@ -39,28 +41,30 @@ function useAuth() {
     dispatch(reset());
   }, [user, isSuccess, message, isError, navigate, dispatch]);
 
-  const onCreateSubmit = (e: any) => {
+  const onCreateSubmit = async (e: any) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const userData: ICreateUserData = {
       name: formData.name,
       email: formData.email,
       password: formData.password,
     };
 
-    dispatch(register(userData));
+    await dispatch(register(userData));
+    setIsLoading(false);
     navigate("/login");
   };
 
-  const onLoginSubmit = (e: any) => {
+  const onLoginSubmit = async (e: any) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const userData: ILoginUserData = {
       email: formData.email,
       password: formData.password,
     };
 
-    dispatch(login(userData));
+    await dispatch(login(userData));
+    setIsLoading(false);
     if (isOrdering) {
       navigate("/order");
     } else {
@@ -68,7 +72,14 @@ function useAuth() {
     }
   };
 
-  return { navigate, onCreateSubmit, formData, onChange, onLoginSubmit };
+  return {
+    navigate,
+    onCreateSubmit,
+    formData,
+    onChange,
+    onLoginSubmit,
+    isLoading,
+  };
 }
 
 export default useAuth;
