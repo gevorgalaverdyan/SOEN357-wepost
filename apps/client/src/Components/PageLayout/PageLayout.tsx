@@ -1,4 +1,4 @@
-import Navbar from "../Navbar/Navbar";
+import { NavBar } from "../component/nav-bar";
 import "./PageLayout.css";
 
 interface IPageLayout {
@@ -8,7 +8,7 @@ interface IPageLayout {
 const PageLayout = (props: IPageLayout) => {
   return (
     <div className="PageLayout">
-      <Navbar />
+      <NavBar />
       {props.children}
     </div>
   );
