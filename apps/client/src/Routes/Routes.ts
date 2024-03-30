@@ -7,6 +7,7 @@ export const routePaths = {
   package: "/package/:id",
   deliveries: "/deliveries",
   order: "/order",
+  deliveryItem: "/deliveries/:id",
 };
 
 export const routes = [
@@ -37,5 +38,9 @@ export const routes = [
   {
     path: routePaths.home,
     title: "Logout",
+  },
+  {
+    path: routePaths.deliveryItem,
+    title: "Delivery",
   },
 ];

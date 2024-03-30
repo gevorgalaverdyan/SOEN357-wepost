@@ -39,7 +39,7 @@ const Quotation = () => {
         elevation={5}
       >
         <Typography variant="h3" color={"primary"} marginBottom={5}>
-          Find a Rate
+          Find a rate
         </Typography>
         {quotationSteps[progress]}
         <Slider activeState={progress}></Slider>

@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import logo from "../../assets/postify-logo.png";
 import { routePaths } from "@/Routes/Routes";
+import { UserNav } from "./user-nav";
 
 export function NavBar() {
   return (
@@ -15,7 +16,7 @@ export function NavBar() {
         </SheetTrigger>
         <SheetContent side="left">
           <a className="mr-6 hidden lg:flex" href="/">
-            <MountainIcon className="h-6 w-6" />
+            <Logo className="h-6 w-6" />
             <span className="sr-only">WePost</span>
           </a>
           <div className="grid gap-2 py-6">
@@ -35,7 +36,7 @@ export function NavBar() {
               className="flex w-full items-center py-2 text-lg font-semibold"
               href={routePaths.login}
             >
-              Login
+              Log in
             </a>
             <a
               className="flex w-full items-center py-2 text-lg font-semibold"
@@ -53,34 +54,35 @@ export function NavBar() {
         </SheetContent>
       </Sheet>
       <a className="mr-6 hidden lg:flex" href="/">
-        <MountainIcon className="h-6 w-6" />
+        <Logo className="w-12" />
         <span className="sr-only">WePost</span>
       </a>
       <nav className="ml-auto hidden lg:flex gap-6 items-center">
         <a
-          className="font-medium hover:text-gray-200 transition-colors text-white"
+          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.home}
         >
           Home
         </a>
         <a
-          className="font-medium hover:text-gray-200 transition-colors text-white"
+          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.deliveries}
         >
           Deliveries
         </a>
         <a
-          className="font-medium hover:text-gray-200 transition-colors text-white"
+          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.login}
         >
-          Login
+          Log in
         </a>
         <a
-          className="font-medium hover:text-gray-200 transition-colors text-white"
+          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.quotation}
         >
           Find a rate
         </a>
+        <UserNav />
       </nav>
     </header>
   );
@@ -107,14 +109,11 @@ function MenuIcon(props) {
   );
 }
 
-function MountainIcon(props) {
+function Logo(props) {
   return (
     <img
       {...props}
       src={logo}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
