@@ -1,10 +1,10 @@
+import Leaflet from "@/Components/Map/map";
+
 export default function DeliveryItem() {
+  const address = "1455 Blvd. De Maisonneuve Ouest, Montreal, Quebec H3G 1M8";
   return (
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, libero
-      ducimus. Fugit ea id eligendi optio recusandae, itaque expedita. Illo
-      explicabo voluptatibus porro accusantium voluptate rem facere totam nemo
-      nisi!
+    <div className="w-1/2">
+      <Leaflet address={address}/>
     </div>
   );
 }

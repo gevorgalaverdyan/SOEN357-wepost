@@ -41,7 +41,6 @@
     "class-validator": "^0.14.0",
     "mongoose": "^8.0.0",
     "react-hook-form": "^7.48.2",
-    "react-router-dom": "^6.18.0",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   }

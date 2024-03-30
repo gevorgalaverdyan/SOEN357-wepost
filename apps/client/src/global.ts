@@ -1,0 +1,1 @@
+export const GEO_API_KEY = "6608776f04c24651931107lyiaa705c";
