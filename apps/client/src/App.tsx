@@ -13,6 +13,7 @@ import Tracking from "./Pages/Tracking/Tracking";
 import Deliveries from "./Pages/Deliveries/Deliveries";
 import Order from "./Pages/Order/Order";
 import DeliveryItem from "./Pages/Deliveries/DeliveryItem/delivery-item";
+import Confirmation from "./Components/Order/Confirmation";
 
 function App() {
   const theme = createTheme({
@@ -39,6 +40,7 @@ function App() {
           <Route path={routePaths.order} element={<Order />} />
           <Route path={routePaths.deliveries} element={<Deliveries />} />
           <Route path={routePaths.deliveryItem} element={<DeliveryItem/>} />
+          <Route path="abc" element={<Confirmation />} />
         </Routes>
       </PageLayout>
     </ThemeProvider>

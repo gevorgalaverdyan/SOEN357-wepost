@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import logo from "../../assets/postify-logo.png";
+import logo from "../../assets/logo.png";
 import { routePaths } from "@/Routes/Routes";
 import { UserNav } from "./user-nav";
 
@@ -57,7 +57,7 @@ export function NavBar() {
         <Logo className="w-12" />
         <span className="sr-only">WePost</span>
       </a>
-      <nav className="ml-auto hidden lg:flex gap-6 items-center">
+      <nav className="hidden lg:flex gap-6 items-center ml-auto">
         <a
           className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.home}

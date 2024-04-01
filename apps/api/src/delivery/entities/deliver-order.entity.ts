@@ -12,6 +12,7 @@ export interface DeliveryOrder extends Document {
   userId: string;
   address: Address;
   trackingId: string;
+  status: string;
 }
 
 export interface Address {
@@ -42,6 +43,7 @@ const DeliveryOrderSchema: Schema = new Schema({
   address: { type: AddressSchema, required: true },
   userId: { type: String, required: true },
   trackingId: { type: String, required: true },
+  status: { type: String, default: 'Pending', required: true },
 });
 
 export default mongoose.model<DeliveryOrder>(

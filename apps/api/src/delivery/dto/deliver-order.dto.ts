@@ -45,3 +45,8 @@ export class CreateDeliveryOrderDto {
   @IsNotEmpty()
   userId: string;
 }
+
+export class UpdateDeliveryStatusDto {
+  @IsNotEmpty()
+  status: string;
+}
