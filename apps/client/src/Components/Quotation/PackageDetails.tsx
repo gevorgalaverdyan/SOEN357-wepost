@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Grid } from "@mui/material";
 import {
   PackageDetails as OrderPackageDetails,
   savePackageDetails,
 } from "../../features/DeliveryOrder/deliveryOrderSlice";
 import { store } from "../../state/store";
+import { Button } from "../ui/button";
+import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 const PackageDetails = ({
   onModifyAddress,
@@ -16,6 +19,7 @@ const PackageDetails = ({
   const [formData, setFormData] = useState<OrderPackageDetails>(
     store.getState().deliveryOrder.packageDetails
   );
+  const navigate = useNavigate();
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -80,19 +84,11 @@ const PackageDetails = ({
           />
         </Grid>
         <Grid item container justifyContent="space-between" xs={12}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="button"
-            onClick={onModifyAddress}
-            sx={{
-              mr: 5,
-            }}
-          >
-            Previous
+          <Button type="button" onClick={onModifyAddress} >
+            <GrCaretPrevious className="mr-1"/> PREVIOUS 
           </Button>
-          <Button variant="contained" color="primary" type="submit">
-            Next
+          <Button type="submit" style={{width: "7rem"}}>
+            NEXT <GrCaretNext className="ml-1" />
           </Button>
         </Grid>
       </Grid>

@@ -1,18 +1,15 @@
-import {
-  Container,
-  Typography,
-  Grid,
-  Paper,
-  Button,
-  Box,
-  Card,
-} from "@mui/material";
+import { Container, Typography, Grid, Paper } from "@mui/material";
 import { store } from "../../state/store";
 import { useNavigate } from "react-router-dom";
 import { saveOrderTotal } from "../../features/DeliveryOrder/deliveryOrderSlice";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { setIsOrder } from "../../features/Auth/authSlice";
+import { Button } from "../ui/button";
+import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import { Card, CardContent } from "../ui/card";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
 
 const Summary = ({ onModifyPackage }: { onModifyPackage: () => void }) => {
   const navigate = useNavigate();
@@ -82,7 +79,7 @@ const Summary = ({ onModifyPackage }: { onModifyPackage: () => void }) => {
               <Typography>Country: {deliveryAddress.country}</Typography>
             </Grid>
           </Grid>
-          <Grid item container mt={3} xs={6}>
+          <Grid item container xs={6}>
             <Grid item xs={12}>
               <Typography>Weight: {packageDetails.weight} kg</Typography>
             </Grid>
@@ -97,25 +94,22 @@ const Summary = ({ onModifyPackage }: { onModifyPackage: () => void }) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item mt={3} xs={12}>
-          <Card sx={{ p: 1, m: "auto", bgcolor: "lightgray", width: "70%" }}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                gap: 8,
-              }}
-            >
-              <Typography variant="h4" gutterBottom>
-                Proposed rate:
-              </Typography>
-              <Typography variant="h4">
-                {proposedRate ? proposedRate.toFixed(2) : "Calculating..."}$
-              </Typography>
-            </Box>
+        <div className="flex flex-col items-center mt-6">
+          <Card className="bg-gray-100 w-3/5">
+            <CardContent className="flex flex-row mt-6 align-center justify-center items-center">
+              <Label className="mr-2 text-lg">Proposed Rate:</Label>
+              <Input
+                className="font-bold w-32 text-center"
+                value={
+                  proposedRate
+                    ? proposedRate.toFixed(2) + " CAD$"
+                    : "Calculating..."
+                }
+                disabled
+              />
+            </CardContent>
           </Card>
-        </Grid>
+        </div>
 
         <Grid
           container
@@ -125,20 +119,12 @@ const Summary = ({ onModifyPackage }: { onModifyPackage: () => void }) => {
           mt={4}
           xs={12}
         >
-          <Button
-            variant="contained"
-            color="primary"
-            type="button"
-            onClick={onModifyPackage}
-          >
-            Previous
+          <Button type="button" onClick={onModifyPackage}>
+            <GrCaretPrevious className="mr-1" /> PREVIOUS
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={onQuotationConfirm}
-          >
-            Start Order
+          <Button onClick={onQuotationConfirm}>
+            START ORDER
+            <GrCaretNext className="ml-1" />
           </Button>
         </Grid>
       </Paper>

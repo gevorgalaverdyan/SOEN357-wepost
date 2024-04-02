@@ -1,9 +1,11 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { object, TypeOf, string } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSelector } from "react-redux";
+import { Button } from "../ui/button";
+import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
 
 const paymentSchema = object({
   cardNumber: string()
@@ -68,6 +70,8 @@ export default function PaymentForm({
       );
       const r = await response.json();
       console.log(r);
+      localStorage.setItem("_id", r._id);
+      localStorage.setItem("trackingId", r.trackingId);
       if (r._id) {
         onConfirmation(r);
       }
@@ -131,21 +135,18 @@ export default function PaymentForm({
           >
             <Button
               type="button"
-              variant="contained"
-              color="secondary"
               onClick={() => {
                 navigate("/");
               }}
             >
-              Cancel
+              <GrCaretPrevious className="mr-1" /> CANCEL
             </Button>
             <Button
               type="submit"
-              variant="contained"
-              color="primary"
-              // onClick={onConfirmation}
+              //onClick={onConfirmation}
             >
-              Confirm Order
+              CONFIRM ORDER
+              <GrCaretNext className="ml-1" />
             </Button>
           </Grid>
         </Grid>

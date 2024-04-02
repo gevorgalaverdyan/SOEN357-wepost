@@ -1,17 +1,23 @@
-import { Box, Card, Container, Paper, Typography } from "@mui/material";
+import { Container, Paper, Typography } from "@mui/material";
 import PaymentForm from "../../Components/Order/PaymentForm";
 import Confirmation from "../../Components/Order/Confirmation";
 import { store } from "../../state/store";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Card, CardContent } from "@/Components/ui/card";
+import { Label } from "@/Components/ui/label";
+import { Input } from "@/Components/ui/input";
 
 const Order = () => {
   const [progress, setProgress] = useState<number>(0);
   const [data, setData] = useState({});
+  const navigate = useNavigate();
   const orderSteps: JSX.Element[] = [
     <PaymentForm
       onConfirmation={(d) => {
         setData(d);
         setProgress(1);
+        navigate("/confirmation");
       }}
     />,
     <Confirmation data={data} />,
@@ -24,7 +30,7 @@ const Order = () => {
             <Typography variant="h3" color={"primary"} marginBottom={5}>
               Payment
             </Typography>
-            <Card
+            {/* <Card
               sx={{
                 p: 1,
                 m: "auto",
@@ -48,7 +54,22 @@ const Order = () => {
                   {store.getState().deliveryOrder.orderTotal?.toFixed(2)}$
                 </Typography>
               </Box>
-            </Card>
+            </Card> */}
+            <div className="flex flex-col items-center m-6">
+              <Card className="bg-gray-100 w-3/5">
+                <CardContent className="flex flex-row mt-6 align-center justify-center items-center">
+                  <Label className="mr-2 text-lg">Proposed Rate:</Label>
+                  <Input
+                    className="font-bold w-32 text-center"
+                    value={
+                      store.getState().deliveryOrder.orderTotal?.toFixed(2) +
+                      " $"
+                    }
+                    disabled
+                  />
+                </CardContent>
+              </Card>
+            </div>
           </>
         )}
         {orderSteps[progress]}
