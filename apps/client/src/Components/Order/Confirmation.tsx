@@ -215,7 +215,7 @@ export default function Confirmation(props: IConfirmation) {
             </Card>
 
             <p className="text-left">How do you like our order details page?</p>
-            <Link to={"feedback"} className="underline">
+            <Link to={"/contact"} className="underline">
               Tell us what you think
             </Link>
           </CardHeader>

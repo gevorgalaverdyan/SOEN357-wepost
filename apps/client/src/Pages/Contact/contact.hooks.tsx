@@ -15,7 +15,7 @@ function useContactHook() {
     }));
   };
 
-  return { formData, onChange };
+  return { formData, onChange, setFormData };
 }
 
 export default useContactHook;
