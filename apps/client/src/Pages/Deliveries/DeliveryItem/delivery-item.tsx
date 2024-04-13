@@ -3,7 +3,7 @@ import { Card, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Label } from "@/Components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { store } from "@/state/store";
-import HistoryStepper from './HistoryStepper';
+import HistoryStepper from "./HistoryStepper";
 
 const myObject = {
   package: [
@@ -51,10 +51,10 @@ export default function DeliveryItem() {
   return (
     <>
       <Label
-        className="flex items-start text-4xl font-semibold m-10"
+        className="flex items-start text-4xl font-semibold mt-10"
         style={{ marginLeft: "7.5rem" }}
       >
-      Delivery Status
+        Delivery Status
       </Label>
       <div className="flex pr-10 pl-20">
         <div className="m-10 " style={{ width: "70%", marginTop: "5rem" }}>
@@ -120,14 +120,13 @@ export default function DeliveryItem() {
               </div>
             </CardHeader>
             <CardHeader className="items-start flex-col gap-10">
-              <CardTitle className="text-lg">Item info</CardTitle>
               <div className="flex">
                 {/* <img
                   src={packageImg}
                   width={200}
                   className="rounded-xl drop-shadow-lg"
                 /> */}
-                <div className="text-left ml-5">
+                <div className="text-left">
                   <Label className="text-lg">
                     Thank you for your business.
                   </Label>
@@ -138,20 +137,18 @@ export default function DeliveryItem() {
                 </div>
               </div>
             </CardHeader>
-            <CardFooter className="flex justify-between">
-            </CardFooter>
+            <CardFooter className="flex justify-between"></CardFooter>
           </Card>
         </div>
         <div className="m-10 ml-0" style={{ width: "30%" }}>
-          <div style={{ marginTop: "5%"}}>
-            <CardHeader className="items-start flex-col gap-10 ">
+          <div style={{ marginTop: "5%" }}>
+            <CardHeader className="items-start flex-col gap-5 ">
               <CardTitle className="text-lg">History</CardTitle>
-              <div className="flex-grow" >
+              <div className="flex-grow">
                 <HistoryStepper />
               </div>
             </CardHeader>
           </div>
-
 
           {/* <div className="flex-grow" style={{ marginTop: "5%"}}>
             <Card>
@@ -161,19 +158,16 @@ export default function DeliveryItem() {
             </CardHeader>
             </Card>
           </div> */}
-          
         </div>
-
       </div>
       <div className="flex justify-center">
-        <div className="m-10 ml-0" style={{ width: "80%" }}>  
-            <CardHeader className="items-start flex-col gap-10 justify-center items-center">
-              <CardTitle className="text-lg">Live item location</CardTitle>
-              <Leaflet address={address} />
-            </CardHeader>
+        <div className="m-10 ml-0" style={{ width: "80%" }}>
+          <CardHeader className="items-start flex-col gap-10 justify-center items-center">
+            <CardTitle className="text-lg">Live item location</CardTitle>
+            <Leaflet address={address} />
+          </CardHeader>
         </div>
       </div>
-      
     </>
   );
 }

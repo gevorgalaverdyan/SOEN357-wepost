@@ -6,19 +6,19 @@ import StepLabel from "@mui/material/StepLabel";
 
 const stepss = [
   {
-    label: 'In process - recipient city',
+    label: "In process - recipient city",
     description: `11:30AM`,
   },
   {
-    label: 'In transit - sending city',
+    label: "In transit - sending city",
     description: `12:30AM`,
   },
   {
-    label: 'Parcel received at factory',
+    label: "Parcel received at factory",
     description: `1:30AM`,
   },
   {
-    label: 'Out for delivery',
+    label: "Out for delivery",
     description: `2:30AM`,
   },
 ];
@@ -41,7 +41,7 @@ export default function HistoryStepper() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={activeStep} orientation="vertical" sx={{ ...connectorStyle }}>
+      <Stepper activeStep={1} orientation="vertical" sx={{ ...connectorStyle }}>
         {stepss.map((step, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {
@@ -52,17 +52,18 @@ export default function HistoryStepper() {
           }
           return (
             <Step key={step.label} {...stepProps}>
-              <StepLabel {...labelProps}
+              <StepLabel
+                {...labelProps}
                 StepIconProps={{
                   style: {
-                    fontSize: "3.5rem", // Adjust the font size here
-                  }
+                    fontSize: "3rem", // Adjust the font size here
+                  },
                 }}
-              > 
-              <div>
-                <div>{step.label}</div>
-                <div>- {step.description}</div>
-              </div>        
+              >
+                <div>
+                  <div>{step.label}</div>
+                  <div>- {step.description}</div>
+                </div>
               </StepLabel>
             </Step>
           );
