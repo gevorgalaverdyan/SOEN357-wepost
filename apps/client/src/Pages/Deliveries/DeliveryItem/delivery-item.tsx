@@ -161,7 +161,7 @@ export default function DeliveryItem() {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="m-10 ml-0" style={{ width: "80%" }}>
+        <div style={{ width: "80%" }}>
           <CardHeader className="items-start flex-col gap-10 justify-center items-center">
             <CardTitle className="text-lg">Live item location</CardTitle>
             <Leaflet address={address} />

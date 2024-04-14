@@ -1,4 +1,5 @@
 import { NavBar } from "../Navbar/nav-bar";
+import { Footer } from "../footer/footer";
 import "./PageLayout.css";
 
 interface IPageLayout {
@@ -7,10 +8,13 @@ interface IPageLayout {
 
 const PageLayout = (props: IPageLayout) => {
   return (
-    <div className="PageLayout">
-      <NavBar />
-      {props.children}
-    </div>
+    <>
+      <div className="PageLayout">
+        <NavBar />
+        {props.children}
+        <Footer />
+      </div>
+    </>
   );
 };
 
