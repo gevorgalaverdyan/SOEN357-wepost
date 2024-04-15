@@ -69,10 +69,13 @@ export function DataTable<TData, TValue>({
                       <div
                         className={cn(
                           "p-2 h-10 rounded-xl",
-                          cell.getContext().row.original.orderStatus ===
-                            "Delivered"
-                            ? "bg-green-400"
-                            : "bg-red-400"
+                          cell.getContext().row.original.orderStatus === "Delivered"
+                          ? "bg-green-400"
+                          : cell.getContext().row.original.orderStatus === "Shipped"
+                          ? "bg-yellow-400"
+                          : cell.getContext().row.original.orderStatus === "Pending"
+                          ? "bg-red-400"
+                          : "bg-gray-400" 
                         )}
                       >
                         {flexRender(
