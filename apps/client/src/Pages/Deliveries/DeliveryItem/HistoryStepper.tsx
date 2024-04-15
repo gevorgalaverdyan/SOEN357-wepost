@@ -33,9 +33,10 @@ export default function HistoryStepper() {
 
   const connectorStyle = {
     "& .MuiStepConnector-lineVertical": {
-      minHeight: "5rem", // Adjust the thickness of the line
-      width: "50%", // Make the connectors longer
-      marginLeft: "7%", // Center the line
+      minHeight: "3rem", // Adjust the thickness of the line
+      // width: "100%", // Make the connectors longer
+      //  margin: "1rem", // Center the line
+      marginLeft: "0.2rem", // Center the line
     },
   };
 
@@ -56,7 +57,7 @@ export default function HistoryStepper() {
                 {...labelProps}
                 StepIconProps={{
                   style: {
-                    fontSize: "3rem", // Adjust the font size here
+                    fontSize: "2rem", // Adjust the font size here
                   },
                 }}
               >
