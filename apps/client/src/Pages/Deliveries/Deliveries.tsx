@@ -1,5 +1,6 @@
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
+import React, { useState } from 'react';
 
 function createData(
   orderNumber: number,
@@ -30,12 +31,31 @@ const rows = [
     "Delivered"
   ),
   createData(4, 44812018975, "New Haven, CT 06520, United States", "Delivered"),
+  createData(
+    5,
+    43453530374,
+    "3142 Rue Guy, Québec, QC H42 9V7",
+    "Pending"
+  ),
 ];
 
 export default function Deliveries() {
+  const [filterStatus, setFilterStatus] = useState('');
+
+  const filteredRows = rows.filter((row) => {
+    return row.orderStatus.toLowerCase().includes(filterStatus.toLowerCase());
+  });
+
   return (
     <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={rows} />
+      <input
+        type="text"
+        value={filterStatus}
+        onChange={(e) => setFilterStatus(e.target.value)}
+        placeholder="Filter by status"
+        className="mb-4 p-2 border rounded"
+      />
+      <DataTable columns={columns} data={filteredRows} />
     </div>
   );
 }
