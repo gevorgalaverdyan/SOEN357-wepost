@@ -13,28 +13,28 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const getTrackingInfo = async (value: string) => {
-    const response = await fetch(
-        `http://localhost:3001/api/delivery/tracking/${value}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-    );
-    const json = await response.json();
-    store.dispatch(saveTrackingData(json));
-    navigate(`/package/${value}`);
-  };
-
-  const trackDelivery = (e: any) => {
-    e.preventDefault();
-    // Supposedly this should send a request to fetch the delivery information
-    // Set dynamic route, dispatch tracking data
-    // navigate("/package/1");
-    getTrackingInfo(e.target.trackingNumber.value);
-  };
+  // const getTrackingInfo = async (value: string) => {
+  //   const response = await fetch(
+  //       `http://localhost:3001/api/delivery/tracking/${value}`,
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-type": "application/json",
+  //         },
+  //       }
+  //   );
+  //   const json = await response.json();
+  //   store.dispatch(saveTrackingData(json));
+  //   navigate(`/package/${value}`);
+  // };
+  //
+  // const trackDelivery = (e: any) => {
+  //   e.preventDefault();
+  //   // Supposedly this should send a request to fetch the delivery information
+  //   // Set dynamic route, dispatch tracking data
+  //   // navigate("/package/1");
+  //   getTrackingInfo(e.target.trackingNumber.value);
+  // };
 
     return (
         <Box className="home-container">
