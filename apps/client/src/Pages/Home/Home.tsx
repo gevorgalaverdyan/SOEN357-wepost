@@ -8,7 +8,6 @@ import { saveTrackingData } from "../Tracking/TrackingSlice";
 
 const Home = () => {
   const email = localStorage.getItem("email");
-
   const navigate = useNavigate();
 
   const getTrackingInfo = async (value: string) => {
@@ -28,9 +27,6 @@ const Home = () => {
 
   const trackDelivery = (e: any) => {
     e.preventDefault();
-    // Supposedly this should send a request to fetch the delivery information
-    // Set dynamic route, dispatch tracking data
-    // navigate("/package/1");
     getTrackingInfo(e.target.trackingNumber.value);
   };
 
@@ -73,29 +69,31 @@ const Home = () => {
           <Grid item xs={12} md={6}>
             <Typography variant="h3">Take Control Now!</Typography>
             <Typography marginTop={3} marginBottom={3}>
-              Log In or Sign Up
+              {email ? "" : "Log In or Sign Up"}
             </Typography>
-            <Grid
-              container
-              spacing={2}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Grid xs={3} item>
-                <Button variant="contained" onClick={() => navigate("login")}>
-                  Log In
-                </Button>
+            {!email && (
+              <Grid
+                container
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Grid xs={3} item>
+                  <Button variant="contained" onClick={() => navigate("login")}>
+                    Log In
+                  </Button>
+                </Grid>
+                <Grid xs={3} item>
+                  <Button
+                    className="sign-up-button"
+                    variant="outlined"
+                    onClick={() => navigate("sign-up")}
+                  >
+                    Sign Up
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid xs={3} item>
-                <Button
-                  className="sign-up-button"
-                  variant="outlined"
-                  onClick={() => navigate("sign-up")}
-                >
-                  Sign Up
-                </Button>
-              </Grid>
-            </Grid>
+            )}
           </Grid>
           <Grid item xs={12} md={6}>
             <img className="pictures" src={takeControl} />
