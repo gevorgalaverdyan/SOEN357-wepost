@@ -22,7 +22,7 @@ const rows = [
     2,
     22734442800,
     "200 University Ave W, Waterloo, ON N2L 3G1",
-    "Out for delivery"
+    "Shipped"
   ),
   createData(
     3,
