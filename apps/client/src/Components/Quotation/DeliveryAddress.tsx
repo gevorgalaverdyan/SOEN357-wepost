@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Grid } from "@mui/material";
 import {
   DeliveryAddress as OrderAddress,
   saveOrderAddress,
 } from "../../features/DeliveryOrder/deliveryOrderSlice";
 import { store } from "../../state/store";
+import { Button } from "../ui/button";
+import { GrCaretNext } from "react-icons/gr";
 
 const DeliveryAddress = ({
   onAddressConfirm,
@@ -81,8 +83,9 @@ const DeliveryAddress = ({
           />
         </Grid>
         <Grid item container justifyContent="flex-end" mt={1} xs={12}>
-          <Button variant="contained" color="primary" type="submit">
-            Next
+          <Button type="submit" style={{ width: "7rem" }}>
+            NEXT
+            <GrCaretNext className="ml-1" />
           </Button>
         </Grid>
       </Grid>

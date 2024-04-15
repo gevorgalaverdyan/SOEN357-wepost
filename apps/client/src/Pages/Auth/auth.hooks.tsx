@@ -63,6 +63,8 @@ function useAuth() {
       password: formData.password,
     };
 
+    localStorage.setItem("email", formData.email);
+
     await dispatch(login(userData));
     setIsLoading(false);
     if (isOrdering) {

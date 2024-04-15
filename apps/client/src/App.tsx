@@ -13,6 +13,9 @@ import Tracking from "./Pages/Tracking/Tracking";
 import Deliveries from "./Pages/Deliveries/Deliveries";
 import Order from "./Pages/Order/Order";
 import DeliveryItem from "./Pages/Deliveries/DeliveryItem/delivery-item";
+import Confirmation from "./Components/Order/Confirmation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const theme = createTheme({
@@ -38,8 +41,10 @@ function App() {
           <Route path={routePaths.package} element={<Tracking />} />
           <Route path={routePaths.order} element={<Order />} />
           <Route path={routePaths.deliveries} element={<Deliveries />} />
-          <Route path={routePaths.deliveryItem} element={<DeliveryItem/>} />
+          <Route path={routePaths.deliveryItem} element={<DeliveryItem />} />
+          <Route path="confirmation" element={<Confirmation />} />
         </Routes>
+        <ToastContainer />
       </PageLayout>
     </ThemeProvider>
   );

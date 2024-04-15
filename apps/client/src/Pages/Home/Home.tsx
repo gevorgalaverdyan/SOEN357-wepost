@@ -9,6 +9,8 @@ import FindOutMoreSection from "./FindOutMoreSection.tsx";
 
 
 const Home = () => {
+  const email = localStorage.getItem("email");
+
   const navigate = useNavigate();
 
   const getTrackingInfo = async (value: string) => {

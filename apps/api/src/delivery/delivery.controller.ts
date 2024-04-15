@@ -5,13 +5,14 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import { DeliveryService } from './delivery.service';
-import { CreateDeliveryOrderDto } from './dto/deliver-order.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { CatchingPokemon } from '@mui/icons-material';
+import {
+  CreateDeliveryOrderDto,
+  UpdateDeliveryStatusDto,
+} from './dto/deliver-order.dto';
 import { DeliveryOrder } from 'src/delivery/entities/deliver-order.entity';
 
 @Controller('delivery')
@@ -39,5 +40,15 @@ export class DeliveryController {
   @Get(':userId')
   getDeliveries(@Param('userId') id: string) {
     return this.deliveryService.findAllUserDeliveries(id);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.FORBIDDEN)
+  @Patch(':id')
+  updateDeliveryStatus(
+    @Param('id') id: string,
+    @Body() status: UpdateDeliveryStatusDto,
+  ) {
+    return this.deliveryService.updateDeliveryStatus(id, status.status);
   }
 }

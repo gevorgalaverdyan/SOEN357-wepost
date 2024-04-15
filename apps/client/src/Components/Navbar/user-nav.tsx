@@ -44,7 +44,14 @@ export function UserNav() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("trackingId");
+            localStorage.removeItem("_id");
+            window.location.reload();
+          }}
+        >
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>

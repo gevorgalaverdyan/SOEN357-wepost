@@ -1,10 +1,12 @@
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import logo from "../../assets/postify-logo.png";
+import logo from "../../assets/logo.png";
 import { routePaths } from "@/Routes/Routes";
 import { UserNav } from "./user-nav";
 
 export function NavBar() {
+  const email = localStorage.getItem("email");
+  console.log(email);
   return (
     <header className="bg-primary flex h-20 w-full shrink-0 items-center px-4 md:px-6 border-b-2">
       <Sheet>
@@ -32,12 +34,13 @@ export function NavBar() {
             >
               Deliveries
             </a>
-            <a
+            {!email && (<a
               className="flex w-full items-center py-2 text-lg font-semibold"
               href={routePaths.login}
             >
               Log in
-            </a>
+            </a>)}
+            
             <a
               className="flex w-full items-center py-2 text-lg font-semibold"
               href={routePaths.signUp}
@@ -57,7 +60,7 @@ export function NavBar() {
         <Logo className="w-12" />
         <span className="sr-only">WePost</span>
       </a>
-      <nav className="ml-auto hidden lg:flex gap-6 items-center">
+      <nav className="hidden lg:flex gap-6 items-center ml-auto">
         <a
           className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.home}
@@ -70,19 +73,21 @@ export function NavBar() {
         >
           Deliveries
         </a>
-        <a
+        {!email && (<a
           className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.login}
         >
           Log in
-        </a>
+        </a>)}
+        
         <a
           className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.quotation}
         >
           Find a rate
         </a>
-        <UserNav />
+        {!email && (<UserNav />)}
+        
       </nav>
     </header>
   );

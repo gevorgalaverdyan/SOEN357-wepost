@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateDeliveryOrderDto } from './dto/deliver-order.dto';
 import DeliveryOrderModel, {
   DeliveryOrder,
@@ -47,5 +47,18 @@ export class DeliveryService {
     userId: string,
   ): Promise<DeliveryOrder[] | undefined> {
     return DeliveryOrderModel.find({ userId });
+  }
+
+  public async updateDeliveryStatus(
+    id: string,
+    status: string,
+  ): Promise<DeliveryOrder | undefined> {
+    const delivery = await DeliveryOrderModel.findOne({ trackingId: id });
+    if (!delivery) {
+      throw new NotFoundException('User not found');
+    }
+    delivery.status = status;
+    await delivery.save();
+    return delivery;
   }
 }

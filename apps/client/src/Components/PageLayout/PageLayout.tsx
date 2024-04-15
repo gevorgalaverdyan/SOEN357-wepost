@@ -1,4 +1,4 @@
-import { NavBar } from "../component/nav-bar";
+import { NavBar } from "../Navbar/nav-bar";
 import "./PageLayout.css";
 
 interface IPageLayout {
