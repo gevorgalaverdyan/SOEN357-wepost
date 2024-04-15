@@ -72,11 +72,13 @@ export function DataTable<TData, TValue>({
                           cell.getContext().row.original.orderStatus === "Delivered"
                           ? "bg-green-400"
                           : cell.getContext().row.original.orderStatus === "Shipped"
-                          ? "bg-red-400"
+                          ? "bg-blue-400"
                           : cell.getContext().row.original.orderStatus === "Out for delivery"
                           ? "bg-orange-400"
                           : cell.getContext().row.original.orderStatus === "Pending"
                           ? "bg-yellow-400"
+                          : cell.getContext().row.original.orderStatus === "Canceled"
+                          ? "bg-red-400"
                           : "bg-gray-400" 
                         )}
                       >

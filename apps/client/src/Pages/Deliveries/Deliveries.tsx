@@ -37,6 +37,12 @@ const rows = [
     "3142 Rue Guy, Québec, QC H42 9V7",
     "Pending"
   ),
+  createData(
+    6,
+    23984692017,
+    "212 Blvd Gouin, Québec, QC H4L 1M5",
+    "Canceled"
+  ),
 ];
 
 export default function Deliveries() {
