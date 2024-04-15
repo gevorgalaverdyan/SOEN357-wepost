@@ -7,6 +7,8 @@ import { store } from "../../state/store";
 import { saveTrackingData } from "../Tracking/TrackingSlice";
 
 const Home = () => {
+  const email = localStorage.getItem("email");
+
   const navigate = useNavigate();
 
   const getTrackingInfo = async (value: string) => {
