@@ -42,7 +42,7 @@ export default function HistoryStepper() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stepper activeStep={1} orientation="vertical" sx={{ ...connectorStyle }}>
+      <Stepper activeStep={3} orientation="vertical" sx={{ ...connectorStyle }}>
         {stepss.map((step, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {

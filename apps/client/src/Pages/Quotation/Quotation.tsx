@@ -5,6 +5,10 @@ import { useState } from "react";
 import PackageDescription from "../../Components/Quotation/PackageDetails";
 import Summary from "../../Components/Quotation/Summary";
 
+/**
+ * Renders the Quotation component.
+ * This component displays a multi-step form for finding a rate.
+ */
 const Quotation = () => {
   const [progress, setProgress] = useState<number>(0);
 
@@ -29,7 +33,7 @@ const Quotation = () => {
     />,
   ];
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className="mb-28">
       <Paper
         sx={{
           p: 4,

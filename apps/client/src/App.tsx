@@ -14,12 +14,15 @@ import Deliveries from "./Pages/Deliveries/Deliveries";
 import Order from "./Pages/Order/Order";
 import DeliveryItem from "./Pages/Deliveries/DeliveryItem/delivery-item";
 import Confirmation from "./Components/Order/Confirmation";
-import ProfilePage from "./Pages/Profile/ProfilePage";
 import EditProfilePage from "./Pages/Profile/EditProfile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserProfile } from "./Components/component/user-profile";
 
+/**
+ * The main component of the application.
+ * Renders the page layout and sets up the theme.
+ */
 function App() {
   const theme = createTheme({
     palette: {
@@ -35,6 +38,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <PageLayout>
+        {/* Routes */}
         <Routes>
           <Route path={routePaths.home} element={<Home />} />
           <Route path={routePaths.login} element={<Login />} />
@@ -49,6 +53,7 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/profile/edit" element={<EditProfilePage />} />
         </Routes>
+        {/* Toast container */}
         <ToastContainer />
       </PageLayout>
     </ThemeProvider>

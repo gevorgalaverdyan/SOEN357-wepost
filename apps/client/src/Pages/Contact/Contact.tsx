@@ -22,6 +22,10 @@ import {
 import { Button } from "@/Components/ui/button";
 import { toast } from "react-toastify";
 
+/**
+ * Renders the Contact page component.
+ * Allows users to leave a message and send an email.
+ */
 function Contact() {
   const { formData, onChange, setFormData } = useContactHook();
   const form = useRef<HTMLFormElement>();

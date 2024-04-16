@@ -4,6 +4,11 @@ import { cn } from "@/lib/utils";
 import { useLocation } from "react-router-dom";
 import logo from "../../assets/postify-logo.png";
 
+/**
+ * Renders the Signup page.
+ * 
+ * @returns The JSX element representing the Signup page.
+ */
 function Signup() {
   const { pathname } = useLocation();
 
