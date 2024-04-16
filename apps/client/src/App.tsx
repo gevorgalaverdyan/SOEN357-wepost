@@ -14,6 +14,8 @@ import Deliveries from "./Pages/Deliveries/Deliveries";
 import Order from "./Pages/Order/Order";
 import DeliveryItem from "./Pages/Deliveries/DeliveryItem/delivery-item";
 import Confirmation from "./Components/Order/Confirmation";
+import ProfilePage from "./Pages/Profile/ProfilePage";
+import EditProfilePage from "./Pages/Profile/EditProfile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,6 +45,8 @@ function App() {
           <Route path={routePaths.deliveries} element={<Deliveries />} />
           <Route path={routePaths.deliveryItem} element={<DeliveryItem />} />
           <Route path="confirmation" element={<Confirmation />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/edit" element={<EditProfilePage />} />
         </Routes>
         <ToastContainer />
       </PageLayout>
