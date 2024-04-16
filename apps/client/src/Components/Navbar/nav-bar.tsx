@@ -3,10 +3,21 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import logo from "../../assets/logo.png";
 import { routePaths } from "@/Routes/Routes";
 import { UserNav } from "./user-nav";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export function NavBar() {
-  const email = localStorage.getItem("email");
-  console.log(email);
+  // const email = localStorage.getItem("user");
+  const [signedIn, setSignedIn] = useState(false);
+  const {user} = useSelector((state: any) => state.auth);
+
+  useEffect(() => {
+    if (user) {
+      setSignedIn(true);
+    }
+    console.log(user)
+  }, [user]);
+
   return (
     <header className="bg-primary flex h-20 w-full shrink-0 items-center px-4 md:px-6 border-b-2">
       <Sheet>
@@ -28,19 +39,23 @@ export function NavBar() {
             >
               Home
             </a>
-            <a
-              className="flex w-full items-center py-2 text-lg font-semibold"
-              href={routePaths.deliveries}
-            >
-              Deliveries
-            </a>
-            {!email && (<a
-              className="flex w-full items-center py-2 text-lg font-semibold"
-              href={routePaths.login}
-            >
-              Log in
-            </a>)}
-            
+            {signedIn && (
+              <a
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href={routePaths.deliveries}
+              >
+                Deliveries
+              </a>
+            )}
+            {!signedIn && (
+              <a
+                className="flex w-full items-center py-2 text-lg font-semibold"
+                href={routePaths.login}
+              >
+                Log in
+              </a>
+            )}
+
             <a
               className="flex w-full items-center py-2 text-lg font-semibold"
               href={routePaths.signUp}
@@ -67,27 +82,30 @@ export function NavBar() {
         >
           Home
         </a>
-        <a
-          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
-          href={routePaths.deliveries}
-        >
-          Deliveries
-        </a>
-        {!email && (<a
-          className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
-          href={routePaths.login}
-        >
-          Log in
-        </a>)}
-        
+        {signedIn && (
+          <a
+            className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
+            href={routePaths.deliveries}
+          >
+            Deliveries
+          </a>
+        )}
+        {!signedIn && (
+          <a
+            className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
+            href={routePaths.login}
+          >
+            Log in
+          </a>
+        )}
+
         <a
           className="font-medium hover:text-gray-200 transition-colors text-white text-xl"
           href={routePaths.quotation}
         >
           Find a rate
         </a>
-        {!email && (<UserNav />)}
-        
+        {signedIn && <UserNav />}
       </nav>
     </header>
   );

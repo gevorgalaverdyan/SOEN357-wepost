@@ -2,7 +2,7 @@
 body {
   background-color: #87ceeb;
   /*overflow: hidden;*/
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
 }
 .loop-wrapper {
   margin: 0 auto;
@@ -218,7 +218,7 @@ body {
 
 /* ship-now Tips Section Styles */
 .ship-now-section {
-  background-color: #10142c;
+  /* background-color: #9ea3be; */
   margin-top: 2rem;
   text-align: center;
   padding: 85px;

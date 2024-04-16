@@ -9,8 +9,6 @@ import FindOutMoreSection from "./FindOutMoreSection.tsx";
 
 
 const Home = () => {
-  const email = localStorage.getItem("email");
-
   const navigate = useNavigate();
 
   // const getTrackingInfo = async (value: string) => {
@@ -47,13 +45,13 @@ const Home = () => {
             {/* Description of Service */}
             <FindOutMoreSection />
 
-            {/* Footer */}
+            {/* Footer
             <Box className="footer">
                 <Typography variant="body2" color="textSecondary">Quick Links</Typography>
                 <Button onClick={() => navigate("/")}>Home</Button>
                 <Button onClick={() => navigate("/about")}>About Us</Button>
                 <Button onClick={() => navigate("/contact")}>Contact</Button>
-            </Box>
+            </Box> */}
         </Box>
     );
 };
