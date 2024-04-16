@@ -9,3 +9,5 @@ To run only API go to api folder first
 To run both stay in root folder</pre>
 
 <code>>> npm run dev</code>
+
+[![Demo](https://img.youtube.com/vi/YJbmlGUkoGE/0.jpg)](https://www.youtube.com/watch?v=YJbmlGUkoGE)
