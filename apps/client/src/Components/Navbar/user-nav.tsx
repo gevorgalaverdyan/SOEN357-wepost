@@ -11,8 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import avatar from "../../../public/04.png";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function UserNav() {
+  const navigate = useNavigate();
+  const {user} = useSelector((state: any) => state.auth);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -26,15 +30,19 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">shadcn</p>
+            <p className="text-sm font-medium leading-none">{user.user.name}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              m@example.com
+              {user.user.email}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => {
+              navigate("/profile");
+            }}
+          >
             Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
@@ -49,6 +57,7 @@ export function UserNav() {
             localStorage.removeItem("user");
             localStorage.removeItem("trackingId");
             localStorage.removeItem("_id");
+            navigate("");
             window.location.reload();
           }}
         >

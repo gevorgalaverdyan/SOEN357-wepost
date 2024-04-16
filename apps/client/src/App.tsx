@@ -18,6 +18,7 @@ import ProfilePage from "./Pages/Profile/ProfilePage";
 import EditProfilePage from "./Pages/Profile/EditProfile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserProfile } from "./Components/component/user-profile";
 
 function App() {
   const theme = createTheme({
@@ -45,7 +46,7 @@ function App() {
           <Route path={routePaths.deliveries} element={<Deliveries />} />
           <Route path={routePaths.deliveryItem} element={<DeliveryItem />} />
           <Route path="confirmation" element={<Confirmation />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/profile/edit" element={<EditProfilePage />} />
         </Routes>
         <ToastContainer />

@@ -1,17 +1,17 @@
 import { Box, Typography, Button, TextField } from "@mui/material";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"; 
-import { updateUserProfile } from "../actions/userActions";
 
 const EditProfilePage = () => {
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userData); 
-  const [name, setName] = useState(userData.name);
-  const [email, setEmail] = useState(userData.email);
-  const [address, setAddress] = useState(userData.address);
+  const { user } = useSelector((state: any) => state.auth);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [address, setAddress] = useState(user.address);
   const [password, setPassword] = useState(""); 
 
   const handleSaveProfile = () => {
-    dispatch(updateUserProfile({ name, email, address, password }));
+    // dispatch(updateUserProfile({ name, email, address, password }));
   };
 
   return (
